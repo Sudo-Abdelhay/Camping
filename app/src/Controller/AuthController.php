@@ -3,16 +3,33 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+
+
 
 class AuthController extends AbstractController
 {
+    #[Route('/login', name: 'app_login')]
+    public function index(AuthenticationUtils $authenticationUtils): Response
+    {
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
+        return $this->render('admin/login.html.twig', [
+            'last_username' => $lastUsername,
+            'error'         => $error,
+            ]);
+    }
+
     #[Route('/registerUser', methods: ["POST"])]
-    public function registerUser(Request $request, EntityManagerInterface $entityManager): Response
+    public function registerUser(Request $request, EntityManagerInterface $entityManager,UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = new User();
         // Vérifiez si le formulaire a été soumis
@@ -28,7 +45,7 @@ class AuthController extends AbstractController
             $user->setLastname($formData['lastname']);
             $user->setFirstname($formData['firstname']);
             $user->setEmail($formData['email']);
-            $user->setPassword($formData['password']);
+            $user->setPassword($passwordHasher->hashPassword($user, $formData['password']));
             $user->setRole($formData['form']['role']);
 
             // Ajoutez l'utilisateur à la base de données
@@ -36,10 +53,11 @@ class AuthController extends AbstractController
             $entityManager->flush();
 
             // Redirigez l'utilisateur vers la page d'accueil
-            return $this->renderView('/');
+            return $this->render('/front/home.html.twig');
         }
         // Affichez le formulaire de connexion
         return new Response('Error: HTTP method not supported', 405);
     }
         //TODO gerer l'erreur de route non disponible
+
 }

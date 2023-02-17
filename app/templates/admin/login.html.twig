@@ -1,21 +1,24 @@
 {% extends 'base.html.twig' %}
 {% block section %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
     <div class="w-full max-w-xs form">
-        <form class="shadow-md bg-amber-200 rounded px-8 pt-6 pb-8 mb-4" style=":" >
+        <form class="shadow-md bg-amber-200 rounded px-8 pt-6 pb-8 mb-4" style=":" method="post" action="{{ path('app_login') }}" >
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
                     Email
                 </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="" name="_username" value="{{ last_username }}">
             </div>
             <div class="mb-6">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                     Mot de passe
                 </label>
-                <input class="shadow appearance-none border border-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="">
+                <input class="shadow appearance-none border border-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="" name="_password">
             </div>
             <div class="" style=" display:flex; flex-direction: column;">
-                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" style= "margin-bottom:1.5rem" >
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" style= "margin-bottom:1.5rem" type="submit" value="login" >
                     Connexion
                 </button>
                 <a class="inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-800" href="#"style= "margin-bottom:1rem">

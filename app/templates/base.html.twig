@@ -21,7 +21,6 @@
                             <li><a href="/">Accueil</a></li>
                             <li><a>Réserver un camping</a></li>
                             <li><a>A propos de la Tatane</a></li>
-                            <li><a href="/login">Se connecter</a></li>
                         </ul>
                     </div>
                 </div>
@@ -29,11 +28,20 @@
                     <a class="btn btn-ghost normal-case text-xl" style="color: #38A169">LA TATANE</a>
                 </div>
                 <div class="navbar-end">
-                    <div class="avatar offline">
-                        <div class="rounded-full" style="width: 3rem">
-                            <img src="/images/avatar.jpeg"/>
-                        </div>
+                    <div class="dropdown dropdown-bottom dropdown-end">
+                        <label tabindex="0">
+                            <div class="avatar offline">
+                                <div class="avatar offline rounded-full" style="width: 3rem">
+                                    <img src="/images/avatar.jpeg"/>
+                                </div>
+                            </div>
+                        </label>
+                        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a href="/login">Se connecter</a></li>
+                            <li><a href="#">Mon tableau de bord</a></li>
+                        </ul>
                     </div>
+
                 </div>
             </div>
             <div class="hero min-h-screen" style="background-image: url(/images/a.jpeg);">
