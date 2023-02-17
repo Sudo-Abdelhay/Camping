@@ -30,15 +30,29 @@
                 <div class="navbar-end">
                     <div class="dropdown dropdown-bottom dropdown-end">
                         <label tabindex="0">
-                            <div class="avatar offline">
-                                <div class="avatar offline rounded-full" style="width: 3rem">
-                                    <img src="/images/avatar.jpeg"/>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <div class="avatar online">
+                                    <div class="avatar offline rounded-full" style="width: 3rem">
+                                        <img src="/images/avatar.jpeg"/>
+                                    </div>
                                 </div>
-                            </div>
+                            {% else %}
+                                <div class="avatar offline">
+                                    <div class="avatar offline rounded-full" style="width: 3rem">
+                                        <img src="/images/avatar.jpeg"/>
+                                    </div>
+                                </div>
+                            {% endif %}
                         </label>
                         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a href="/login">Se connecter</a></li>
-                            <li><a href="#">Mon tableau de bord</a></li>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                <li><a href="#">Mon tableau de bord</a></li>
+                            {% else %}
+                                <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+                                <li><a href="#">Mon tableau de bord</a></li>
+                            {% endif %}
+
                         </ul>
                     </div>
 

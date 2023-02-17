@@ -4,6 +4,8 @@ controllers:
         namespace: App\Controller
     type: attribute
 
+
+
 #home:
 #    path: /
 #    controller: App\Controller\HomeController::HomeView
