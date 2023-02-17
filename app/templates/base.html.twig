@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html data-theme="bumblebee">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Bienvenue à la Tatane{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <header>
+        {% block header %}
+            <div class="navbar bg-amber-200">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <label tabindex="0" class="btn btn-ghost btn-circle" style="color: #38A169">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                        </label>
+                        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a href="/">Accueil</a></li>
+                            <li><a>Réserver un camping</a></li>
+                            <li><a>A propos de la Tatane</a></li>
+                            <li><a href="/login">Se connecter</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="navbar-center">
+                    <a class="btn btn-ghost normal-case text-xl" style="color: #38A169">LA TATANE</a>
+                </div>
+                <div class="navbar-end">
+                    <div class="avatar offline">
+                        <div class="rounded-full" style="width: 3rem">
+                            <img src="/images/avatar.jpeg"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero min-h-screen" style="background-image: url(/images/a.jpeg);">
+                <div class="hero-overlay"></div>
+                <div class="hero-content text-center text-neutral-content">
+                    {% block section %}
+
+                    {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+    </header>
+    <body>
+        {% block body %}
+        {% endblock %}
+    </body>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+    <script src="https://kit.fontawesome.com/f62463a32e.js" crossorigin="anonymous"></script>
+    <footer>
+        {% block footer %}
+            <footer class="footer footer-center p-4 bg-amber-200 text-base-content" style="color: #38A169">
+                <div>
+                    <p>Copyright © 2023 - All right reserved par Patrick de camping le film avec franck dubosc</p>
+                </div>
+            </footer>
+        {% endblock %}
+    </footer>
+</html>

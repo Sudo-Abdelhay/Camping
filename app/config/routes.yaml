@@ -1,0 +1,17 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+#home:
+#    path: /
+#    controller: App\Controller\HomeController::HomeView
+#
+#login:
+#    path: /login
+#    controller: App\Controller\HomeController::LoginView
+#
+#register:
+#    path: /register
+#    controller: App\Controller\HomeController::RegisterView

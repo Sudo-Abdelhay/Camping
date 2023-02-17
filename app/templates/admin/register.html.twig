@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block section %}
+    <div class="w-full max-w-xs form">
+        <form class="shadow-md bg-amber-200 rounded px-8 pt-6 pb-8 mb-4" name="form" method="POST" action="/registerUser">
+            <h4 class="text-gray-700 text-2xl mb-5 max-w-xs">
+                Formulaire d'inscription
+            </h4>
+            <div class="mb-3">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="lastname">
+                    Nom
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="lastname" type="text" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="firstname">
+                    Prénom
+                </label>
+                <input class="shadow appearance-none border border-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="firstname" type="text" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                    Email
+                </label>
+                <input class="shadow appearance-none border border-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email" type="email" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    Mot de passe
+                </label>
+                <input class="shadow appearance-none border border-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="password" type="password" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="role">
+                    Rôle
+                </label>
+                <select style="height: 3.7rem" class="shadow appearance-none border border-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="form[role][]" multiple>
+                    <option value="ROLE_USER">Utilisateur</option>
+                    <option value="ROLE_ADMIN">Administrateur</option>
+                </select>
+            </div>
+            <div class="" style=" display:flex; flex-direction: column;">
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="register" style= "margin-bottom:1.5rem" >
+                    S'enregistrer
+                </button>
+                <a class="inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-800" href="#"style= "margin-bottom:1rem">
+                    Mot de passe oublié
+                </a>
+                <a class="inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-800" href="/login">
+                    Deja inscrit ?
+                </a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
