@@ -47,7 +47,7 @@
                         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                 <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
-                                <li><a href="#">Mon tableau de bord</a></li>
+                                <li><a href="{{ path('admin') }}">Mon tableau de bord</a></li>
                             {% else %}
                                 <li><a href="{{ path('app_login') }}">Se connecter</a></li>
                                 <li><a href="#">Mon tableau de bord</a></li>
