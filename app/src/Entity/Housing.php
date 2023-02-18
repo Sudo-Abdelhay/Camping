@@ -38,14 +38,12 @@ class Housing
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $owner = null;
-
-    #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
-
-    #[ORM\Column]
-    private ?\DateTimeImmutable $updated_at = null;
+//
+//    #[ORM\Column]
+//    private ?\DateTimeImmutable $created_at = null;
+//
+//    #[ORM\Column]
+//    private ?\DateTimeImmutable $updated_at = null;
 
     public function getId(): ?int
     {
@@ -148,39 +146,27 @@ class Housing
         return $this;
     }
 
-    public function getOwner(): ?string
-    {
-        return $this->owner;
-    }
-
-    public function setOwner(string $owner): self
-    {
-        $this->owner = $owner;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $created_at): self
-    {
-        $this->created_at = $created_at;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeImmutable
-    {
-        return $this->updated_at;
-    }
-
-    public function setUpdatedAt(\DateTimeImmutable $updated_at): self
-    {
-        $this->updated_at = $updated_at;
-
-        return $this;
-    }
+//    public function getCreatedAt(): ?\DateTimeImmutable
+//    {
+//        return $this->created_at;
+//    }
+//
+//    public function setCreatedAt(\DateTimeImmutable $created_at): self
+//    {
+//        $this->created_at = $created_at;
+//
+//        return $this;
+//    }
+//
+//    public function getUpdatedAt(): ?\DateTimeImmutable
+//    {
+//        return $this->updated_at;
+//    }
+//
+//    public function setUpdatedAt(\DateTimeImmutable $updated_at): self
+//    {
+//        $this->updated_at = $updated_at;
+//
+//        return $this;
+//    }
 }

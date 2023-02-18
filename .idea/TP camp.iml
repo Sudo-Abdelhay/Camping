@@ -19,6 +19,10 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/options-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/polyfill-intl-icu" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/web-profiler-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/polyfill-intl-idn" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/sensio/framework-extra-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/doctrine/annotations" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block section %}
+    <div style="display: flex;gap: 3rem" >
+    {% for housing in housings %}
+    <div class="card w-96 bg-base-100 shadow-xl">
+        <figure><img src="/images/housing/img.jpeg" alt="Image" style="width: 100%"/></figure>
+        <div class="card-body">
+            <h2 class="card-title">
+                {{ housing.name }}
+                <div class="badge badge-secondary">Type</div>
+            </h2>
+            <p>{{ housing.description }}</p>
+            <div class="card-actions">
+                <button class="btn btn-primary">Buy Now</button>
+            </div>
+        </div>
+    </div>
+        {% endfor %}
+    </div>
+{% endblock %}

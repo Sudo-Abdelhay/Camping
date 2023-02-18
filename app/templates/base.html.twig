@@ -52,12 +52,13 @@
                                 <li><a href="{{ path('app_login') }}">Se connecter</a></li>
                                 <li><a href="#">Mon tableau de bord</a></li>
                             {% endif %}
-
                         </ul>
                     </div>
-
                 </div>
             </div>
+        {% endblock %}
+    </header>
+        {% block body %}
             <div class="hero min-h-screen" style="background-image: url(/images/a.jpeg);">
                 <div class="hero-overlay"></div>
                 <div class="hero-content text-center text-neutral-content">
@@ -67,16 +68,10 @@
                 </div>
             </div>
         {% endblock %}
-    </header>
-    <body>
-        {% block body %}
-        {% endblock %}
-    </body>
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
     <script src="https://kit.fontawesome.com/f62463a32e.js" crossorigin="anonymous"></script>
-    <footer>
         {% block footer %}
             <footer class="footer footer-center p-4 bg-amber-200 text-base-content" style="color: #38A169">
                 <div>
@@ -84,5 +79,4 @@
                 </div>
             </footer>
         {% endblock %}
-    </footer>
 </html>

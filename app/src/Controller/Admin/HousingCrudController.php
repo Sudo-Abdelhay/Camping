@@ -23,7 +23,6 @@ class HousingCrudController extends AbstractCrudController
         return Housing::class;
     }
 
-
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -31,22 +30,24 @@ class HousingCrudController extends AbstractCrudController
             TextField::new('name'),
             TextField::new('description'),
             IntegerField::new('capacity'),
-//            ImageField::new('image'),
+            ImageField::new('image')
+            ->setBasePath('public/images/housing')
+            ->setUploadDir('public/images/housing'),
             BooleanField::new('active'),
             IntegerField::new('surface'),
             ArrayField::new('type'),
             MoneyField::new('price')->setCurrency('EUR'),
-//            TextEditorField::new('owner'),
-            DateTimeField::new('created_at')->hideOnForm(),
-            DateTimeField::new('updated_at')->hideOnForm()
+////            TextEditorField::new('owner')->,
+//            DateTimeField::new('created_at'),
+//            DateTimeField::new('updated_at')
         ];
     }
 
-    public function persistEntity(EntityManagerInterface $em, $entityInstance): void
-    {
-        if (!$entityInstance instanceof Housing) return;
-        $entityInstance->setcreatedAt(new \DateTimeImmutable);
-        parent::persistEntity($em, $entityInstance);
-    }
+//    public function persistEntity(EntityManagerInterface $em, $entityInstance): void
+//    {
+//        if (!$entityInstance instanceof Housing) return;
+//        $entityInstance->setcreatedAt(new \DateTimeImmutable);
+//        parent::persistEntity($em, $entityInstance);
+//    }
 
 }
