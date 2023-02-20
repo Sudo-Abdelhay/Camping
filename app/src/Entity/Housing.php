@@ -15,7 +15,7 @@ class Housing
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    private ?string $title = null;
 
     #[ORM\Column]
     private ?int $capacity = null;
@@ -34,30 +34,26 @@ class Housing
 
     #[ORM\Column]
     private ?bool $active = null;
-
     #[ORM\Column]
     private ?int $price = null;
 
-//
-//    #[ORM\Column]
-//    private ?\DateTimeImmutable $created_at = null;
-//
-//    #[ORM\Column]
-//    private ?\DateTimeImmutable $updated_at = null;
+    #[ORM\ManyToOne(inversedBy: 'housings')]
+    private ?User $user = null;
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getTitle(): ?string
     {
-        return $this->name;
+        return $this->title;
     }
 
-    public function setName(string $name): self
+    public function setTitle(string $title): self
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
@@ -146,28 +142,17 @@ class Housing
         return $this;
     }
 
-//    public function getCreatedAt(): ?\DateTimeImmutable
-//    {
-//        return $this->created_at;
-//    }
-//
-//    public function setCreatedAt(\DateTimeImmutable $created_at): self
-//    {
-//        $this->created_at = $created_at;
-//
-//        return $this;
-//    }
-//
-//    public function getUpdatedAt(): ?\DateTimeImmutable
-//    {
-//        return $this->updated_at;
-//    }
-//
-//    public function setUpdatedAt(\DateTimeImmutable $updated_at): self
-//    {
-//        $this->updated_at = $updated_at;
-//
-//        return $this;
-//    }
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
 
-}
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+
+    }

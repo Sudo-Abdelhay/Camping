@@ -34,7 +34,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
 
-    #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Housing::class)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Housing::class)]
     private Collection $housings;
 
     public function __construct()
@@ -139,7 +139,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->housings->contains($housing)) {
             $this->housings->add($housing);
-            $housing->setUserId($this);
+            $housing->setUser($this);
         }
 
         return $this;
@@ -149,12 +149,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->housings->removeElement($housing)) {
             // set the owning side to null (unless already changed)
-            if ($housing->getUserId() === $this) {
-                $housing->setUserId(null);
+            if ($housing->getUser() === $this) {
+                $housing->setUser(null);
             }
         }
 
         return $this;
     }
+
 
 }

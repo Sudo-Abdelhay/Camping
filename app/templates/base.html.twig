@@ -9,7 +9,8 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
-        {% block header %}
+
+    {% block header %}
             <div class="navbar bg-amber-200">
                 <div class="navbar-start">
                     <div class="dropdown">
@@ -56,26 +57,33 @@
                 </div>
             </div>
         {% endblock %}
-    <div class="hero min-h-screen" style="background-image: url(/images/a.jpeg); max-width: 100% ">
-                <div class="hero-overlay"></div>
-                <div class="hero-content text-center text-neutral-content" style="flex-direction: column">
-                    {% block nav %}
 
-                    {% endblock %}
-                    {% block section %}
 
-                    {% endblock %}
-                </div>
+
+        <div class="hero min-h-screen" style="background-image: url(images/a.jpeg); background-attachment: fixed">
+            <div class="hero-overlay"></div>
+            <div class="hero-content text-center text-neutral-content" style="flex-direction: column">
+                {% block div %}
+
+                {% endblock %}
+                {% block section %}
+
+                {% endblock %}
             </div>
+        </div>
+
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
-    <script src="https://kit.fontawesome.com/f62463a32e.js" crossorigin="anonymous"></script>
+
         {% block footer %}
+            <script src="https://kit.fontawesome.com/f62463a32e.js" crossorigin="anonymous"></script>
             <footer class="footer footer-center p-4 bg-amber-200 text-base-content" style="color: #38A169">
                 <div>
                     <p>Copyright © 2023 - All right reserved par Patrick de camping le film avec franck dubosc</p>
                 </div>
             </footer>
         {% endblock %}
+
+
 </html>

@@ -39,6 +39,7 @@ class BackofficeController extends AbstractDashboardController
     {
         yield MenuItem::section('Logements');
 
+
         yield MenuItem::subMenu('Ma gestion', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Ajouter un logement', 'fas fa-plus', Housing::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Voir mes logements', 'fas fa-eye', Housing::class),
