@@ -1,0 +1,14 @@
+#easy_admin:
+#  entities:
+#    Housing:
+#      class: App\Entity\Housing
+#      form:
+#        fields:
+#          - { property: 'name' }
+#          - { property: 'capacity' }
+#          - { property: 'description' }
+#          - { property: 'surface' }
+#          - { property: 'type', type: 'choice', choices: ['MobileHome': 'Mobile Home', 'Emplacement': 'Emplacement', 'Caravane': 'Caravane'] }
+#          - { property: 'image' }
+#          - { property: 'active' }
+#          - { property: 'price' }

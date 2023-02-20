@@ -26,8 +26,8 @@ class Housing
     #[ORM\Column]
     private ?int $surface = null;
 
-    #[ORM\Column(type: Types::ARRAY)]
-    private array $type = [];
+    #[ORM\Column(length: 255)]
+    private ?string $type = null;
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
@@ -98,12 +98,12 @@ class Housing
         return $this;
     }
 
-    public function getType(): array
+    public function getType(): string
     {
         return $this->type;
     }
 
-    public function setType(array $type): self
+    public function setType(string $type): self
     {
         $this->type = $type;
 
@@ -169,4 +169,5 @@ class Housing
 //
 //        return $this;
 //    }
+
 }

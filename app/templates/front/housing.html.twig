@@ -1,17 +1,74 @@
 {% extends 'base.html.twig' %}
+        {% block header %}
+            <div class="navbar bg-amber-200">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <label tabindex="0" class="btn btn-ghost btn-circle" style="color: #38A169">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                        </label>
+                        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a href="/">Accueil</a></li>
+                            <li><a href="/housing">Réserver un camping</a></li>
+                            <li><a href="#">A propos de la Tatane</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="navbar-center">
+                    <a class="btn btn-ghost normal-case text-xl" style="color: #38A169">FILTRER</a>
+                </div>
+                <div class="navbar-end">
+                    <div class="dropdown dropdown-bottom dropdown-end">
+                        <label tabindex="0">
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <div class="avatar online">
+                                    <div class="avatar offline rounded-full" style="width: 3rem">
+                                        <img src="/images/avatar.jpeg"/>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="avatar offline">
+                                    <div class="avatar offline rounded-full" style="width: 3rem">
+                                        <img src="/images/avatar.jpeg"/>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </label>
+                        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                <li><a href="{{ path('admin') }}">Mon tableau de bord</a></li>
+                            {% else %}
+                                <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+                                <li><a href="#">Mon tableau de bord</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+
 {% block section %}
-    <div style="display: flex;gap: 3rem" >
-    {% for housing in housings %}
+    <div style="display: flex;gap: 3rem; flex-wrap: wrap; margin-top: 10rem "  >
+    {% for housing in housings  %}
     <div class="card w-96 bg-base-100 shadow-xl">
         <figure><img src="/images/housing/img.jpeg" alt="Image" style="width: 100%"/></figure>
         <div class="card-body">
+            {% if housing.type == 'MobileHome'%}
+                <div class="badge badge-error">{{ housing.type  }}</div>
+            {% elseif housing.type == 'Caravane' %}
+                <div class="badge badge-success">{{ housing.type }}</div>
+            {% else %}
+                <div class="badge badge-info">{{ housing.type }}</div>
+            {% endif %}
             <h2 class="card-title">
                 {{ housing.name }}
-                <div class="badge badge-secondary">Type</div>
+                <span><i class="fas fa-user"></i>  {{ housing.capacity }}</span>
+                <span><i class="fas fa-house"></i> {{ housing.surface }} m² </span>
             </h2>
             <p>{{ housing.description }}</p>
             <div class="card-actions">
-                <button class="btn btn-primary">Buy Now</button>
+                <button class="btn btn-primary">Reserver</button>
             </div>
         </div>
     </div>

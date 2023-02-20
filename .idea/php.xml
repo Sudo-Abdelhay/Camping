@@ -94,6 +94,16 @@
       <path value="$PROJECT_DIR$/app/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/app/vendor/sensio/framework-extra-bundle" />
       <path value="$PROJECT_DIR$/app/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/app/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/app/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/app/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/app/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/app/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/app/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/app/vendor/nelmio/alice" />
+      <path value="$PROJECT_DIR$/app/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/app/vendor/hautelook/alice-bundle" />
+      <path value="$PROJECT_DIR$/app/vendor/theofidry/alice-data-fixtures" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

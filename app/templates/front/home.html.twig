@@ -1,14 +1,13 @@
 {% extends 'base.html.twig' %}
+
 {% block section %}
     <div class="">
         <h1 class=" text-5xl font-bold" style="color: #e67e30; padding: 0.7rem; border-radius: 20px">
-
             {% if app.user is not empty %}
                 {{ "Bienvenue " ~ app.user.firstname }}
             {% endif %}
-
         </h1>
         <p class="mb-5"></p>
-        <button class="btn btn-primary" style="background-color: #fde68a; color:#38A169">Reservez maintenant</button>
+        <button class="btn btn-primary" style="background-color: #fde68a; color:#38A169"><a href="/housing">Reservez maintenant</a></button>
     </div>
 {% endblock %}

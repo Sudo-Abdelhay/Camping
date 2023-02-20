@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -31,12 +32,17 @@ class HousingCrudController extends AbstractCrudController
             TextField::new('description'),
             IntegerField::new('capacity'),
             ImageField::new('image')
-            ->setBasePath('public/images/housing')
-            ->setUploadDir('public/images/housing'),
+                ->setBasePath('public/images/housing')
+                ->setUploadDir('public/images/housing'),
             BooleanField::new('active'),
             IntegerField::new('surface'),
-            ArrayField::new('type'),
-            MoneyField::new('price')->setCurrency('EUR'),
+            ChoiceField::new('type')
+                ->renderExpanded()
+                ->setChoices([  'MobileHome' => 'MobileHome',
+                                'Emplacement' => 'Emplacement',
+                                'Caravane' => 'Caravane']
+                ),
+        MoneyField::new('price')->setCurrency('EUR'),
 ////            TextEditorField::new('owner')->,
 //            DateTimeField::new('created_at'),
 //            DateTimeField::new('updated_at')

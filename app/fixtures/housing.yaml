@@ -1,0 +1,10 @@
+App\Entity\Housing:
+  housing_{1..20}:
+    name: <text(20)>
+    capacity: <numberBetween(1, 10)>
+    description: <text(200)>
+    surface: <numberBetween(20, 100)>
+    type: <randomElement(['Caravane', 'MobileHome', 'Emplacement'])>
+    image: <imageUrl(640, 480)>
+    active: true
+    price: <numberBetween(50, 200)>

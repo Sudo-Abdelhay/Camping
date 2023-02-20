@@ -9,7 +9,6 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
-    <header>
         {% block header %}
             <div class="navbar bg-amber-200">
                 <div class="navbar-start">
@@ -19,8 +18,8 @@
                         </label>
                         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><a href="/">Accueil</a></li>
-                            <li><a>Réserver un camping</a></li>
-                            <li><a>A propos de la Tatane</a></li>
+                            <li><a href="/housing">Réserver un camping</a></li>
+                            <li><a href="#">A propos de la Tatane</a></li>
                         </ul>
                     </div>
                 </div>
@@ -57,17 +56,17 @@
                 </div>
             </div>
         {% endblock %}
-    </header>
-        {% block body %}
-            <div class="hero min-h-screen" style="background-image: url(/images/a.jpeg);">
+    <div class="hero min-h-screen" style="background-image: url(/images/a.jpeg); max-width: 100% ">
                 <div class="hero-overlay"></div>
-                <div class="hero-content text-center text-neutral-content">
+                <div class="hero-content text-center text-neutral-content" style="flex-direction: column">
+                    {% block nav %}
+
+                    {% endblock %}
                     {% block section %}
 
                     {% endblock %}
                 </div>
             </div>
-        {% endblock %}
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
