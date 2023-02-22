@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Repository\HousingRepository;
+use App\Repository\ReservationRepository;
+use Doctrine\DBAL\Types\VarDateTimeImmutableType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,4 +20,16 @@ class HousingController extends AbstractController
             'housings' => $housings,
         ]);
     }
+
+    #[Route('/housingdetail{id}')]
+    public function reservation(HousingRepository $housingRepository, $id): Response
+    {
+        $housingdetail = $housingRepository->find($id);
+
+        return $this->render("front/housingdetail.html.twig", [
+            'housing' => $housingdetail,
+    ]);
+    }
+
+
 }
