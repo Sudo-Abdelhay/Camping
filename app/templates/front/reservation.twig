@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block section %}
+    <div style="display: flex;width: 100rem; margin-bottom: 10rem; margin-top: 10rem; justify-content: center; gap:2rem">
+        <div class="" style="width: 50%">
+            <figure><img class="rounded" src="/images/housing/archive/stef.jpg" alt="Image" style="width: 100%"/></figure>
+            <div class=" bg-amber-200 rounded" style="height: 10rem; padding: 1rem">
+                <div style="">
+                    {% if housing.type == 'MobileHome'%}
+                        <div class="badge badge-error">{{ housing.type  }}</div>
+                    {% elseif housing.type == 'Caravane' %}
+                        <div class="badge badge-success">{{ housing.type }}</div>
+                    {% else %}
+                        <div class="badge badge-info">{{ housing.type }}</div>
+                    {% endif %}
+                    <h2 class="card-title">
+                        <span><i class="fas fa-user"></i>  {{ housing.capacity }}</span>
+                        <span><i class="fas fa-house"></i> {{ housing.surface }} m² </span>
+                    </h2>
+                    <p>{{ housing.description }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-amber-200 rounded flex" style="width: 50%; padding: 1rem; flex-direction: column">
+            <div class="check" style="width: 100%">
+                <h2>
+                    Je veux reserver ce logement !!
+                </h2>
+                <div class="flex" style="align-items: center; justify-content: center">
+                    <div>
+                        A partir du
+                        <input class="rounded" type="date">
+                    </div>
+                    <div>
+                        jusqu'au
+                        <input class="rounded" type="date">
+                    </div>
+                </div>
+              </div>
+           <div class="icietla flex" style="width: 100%">
+               <div class="ici flex" style="gap: 1rem; flex-direction: column; width: 50%; align-items: center">
+                   <div class="form-control w-full max-w-xs">
+                       <label class="label">
+                           <span class="label-text">Prénom</span>
+                       </label>
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                   </div>
+                   <div class="form-control w-full max-w-xs">
+                       <label class="label">
+                           <span class="label-text">Nom</span>
+                       </label>
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                   </div>
+                   <div class="form-control w-full max-w-xs">
+                       <label class="label">
+                           <span class="label-text">E-mail</span>
+                       </label>
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                   </div>
+                   <div class="form-control w-full max-w-xs">
+                       <label class="label">
+                           <span class="label-text">Numéro de téléphone</span>
+                       </label>
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                   </div>
+                   <div class="form-control w-full max-w-xs">
+                       <label class="label">
+                           <span class="label-text">Addresse</span>
+                       </label>
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                   </div>
+                   <select class="form-control w-full max-w-xs">
+                       <label class="label">
+                           <option class="label-text">Nombres de jour de piscine (enfants)</option>
+                           <option class="label-text">1</option>
+                           <option class="label-text">2</option>
+                           <option class="label-text">3</option>
+                           <option class="label-text">4</option>
+                           <option class="label-text">5</option>
+                       </label>
+                   </select>
+               </div>
+               <div class="la flex" style="gap: 1rem; flex-direction: column; width: 50%; align-items: center">
+                   <div class="form-control w-full max-w-xs">
+                       <label class="label">
+                           <span class="label-text">Code postal</span>
+                       </label>
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                   </div>
+                   <div class="form-control w-full max-w-xs">
+                       <label class="label">
+                           <span class="label-text">Ville</span>
+                       </label>
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                   </div>
+                   <div class="form-control w-full max-w-xs">
+                       <label class="label">
+                           <span class="label-text">Pays</span>
+                       </label>
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                   </div>
+                   <div class="form-control w-full max-w-xs">
+                       <label class="label">
+                           <span class="label-text">Nombre d'adultes</span>
+                       </label>
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                   </div>
+                   <div class="form-control w-full max-w-xs">
+                       <label class="label">
+                           <span class="label-text">Nombre d'enfants</span>
+                       </label>
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                   </div>
+                   <select class="form-control w-full max-w-xs">
+                       <label class="label">
+                           <option class="label-text">Nombres de jour de piscine (adultes)</option>
+                           <option class="label-text">1</option>
+                           <option class="label-text">2</option>
+                           <option class="label-text">3</option>
+                           <option class="label-text">4</option>
+                           <option class="label-text">5</option>
+                       </label>
+                   </select>
+               </div>
+           </div>
+        </div>
+    </div>
+{% endblock %}
