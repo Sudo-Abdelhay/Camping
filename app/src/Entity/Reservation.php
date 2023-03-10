@@ -14,12 +14,6 @@ class Reservation
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $checkin = null;
-
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $checkout = null;
-
     #[ORM\Column(length: 255)]
     private ?string $firstname = null;
 
@@ -56,33 +50,15 @@ class Reservation
     #[ORM\Column]
     private ?int $pool_child = null;
 
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $checkin = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $checkout = null;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getCheckin(): ?\DateTimeInterface
-    {
-        return $this->checkin;
-    }
-
-    public function setCheckin(\DateTimeInterface $checkin): self
-    {
-        $this->checkin = $checkin;
-
-        return $this;
-    }
-
-    public function getCheckout(): ?\DateTimeInterface
-    {
-        return $this->checkout;
-    }
-
-    public function setCheckout(\DateTimeInterface $checkout): self
-    {
-        $this->checkout = $checkout;
-
-        return $this;
     }
 
     public function getFirstname(): ?string
@@ -225,6 +201,30 @@ class Reservation
     public function setPoolChild(int $pool_child): self
     {
         $this->pool_child = $pool_child;
+
+        return $this;
+    }
+
+    public function getCheckin(): ?\DateTimeInterface
+    {
+        return $this->checkin;
+    }
+
+    public function setCheckin(\DateTimeInterface $checkin): self
+    {
+        $this->checkin = $checkin;
+
+        return $this;
+    }
+
+    public function getCheckout(): ?\DateTimeInterface
+    {
+        return $this->checkout;
+    }
+
+    public function setCheckout(\DateTimeInterface $checkout): self
+    {
+        $this->checkout = $checkout;
 
         return $this;
     }

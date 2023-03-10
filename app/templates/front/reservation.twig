@@ -16,12 +16,13 @@
                     <h2 class="card-title">
                         <span><i class="fas fa-user"></i>  {{ housing.capacity }}</span>
                         <span><i class="fas fa-house"></i> {{ housing.surface }} m² </span>
+                        <span> {{ housing.price }} €/nuit </span>
                     </h2>
                     <p>{{ housing.description }}</p>
                 </div>
             </div>
         </div>
-        <div class="bg-amber-200 rounded flex" style="width: 50%; padding: 1rem; flex-direction: column">
+        <form class="bg-amber-200 rounded flex" style="width: 50%; padding: 1rem; flex-direction: column" method="POST" name="form" action="sendReservation" >
             <div class="check" style="width: 100%">
                 <h2>
                     Je veux reserver ce logement !!
@@ -29,11 +30,11 @@
                 <div class="flex" style="align-items: center; justify-content: center">
                     <div>
                         A partir du
-                        <input class="rounded" type="date">
+                        <input class="rounded" type="date" name="checkin">
                     </div>
                     <div>
                         jusqu'au
-                        <input class="rounded" type="date">
+                        <input class="rounded" type="date" name="checkout">
                     </div>
                 </div>
               </div>
@@ -43,33 +44,33 @@
                        <label class="label">
                            <span class="label-text">Prénom</span>
                        </label>
-                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="firstname" />
                    </div>
                    <div class="form-control w-full max-w-xs">
                        <label class="label">
                            <span class="label-text">Nom</span>
                        </label>
-                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="lastname" />
                    </div>
                    <div class="form-control w-full max-w-xs">
                        <label class="label">
                            <span class="label-text">E-mail</span>
                        </label>
-                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="email"/>
                    </div>
                    <div class="form-control w-full max-w-xs">
                        <label class="label">
                            <span class="label-text">Numéro de téléphone</span>
                        </label>
-                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="phone"/>
                    </div>
                    <div class="form-control w-full max-w-xs">
                        <label class="label">
                            <span class="label-text">Addresse</span>
                        </label>
-                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="adress"/>
                    </div>
-                   <select class="form-control w-full max-w-xs">
+                   <select class="form-control w-full max-w-xs" name="pool_child" >
                        <label class="label">
                            <option class="label-text">Nombres de jour de piscine (enfants)</option>
                            <option class="label-text">1</option>
@@ -85,33 +86,33 @@
                        <label class="label">
                            <span class="label-text">Code postal</span>
                        </label>
-                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="zipcode"/>
                    </div>
                    <div class="form-control w-full max-w-xs">
                        <label class="label">
                            <span class="label-text">Ville</span>
                        </label>
-                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="city"/>
                    </div>
                    <div class="form-control w-full max-w-xs">
                        <label class="label">
                            <span class="label-text">Pays</span>
                        </label>
-                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="country"/>
                    </div>
                    <div class="form-control w-full max-w-xs">
                        <label class="label">
                            <span class="label-text">Nombre d'adultes</span>
                        </label>
-                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="adults"/>
                    </div>
                    <div class="form-control w-full max-w-xs">
                        <label class="label">
                            <span class="label-text">Nombre d'enfants</span>
                        </label>
-                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                       <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="childs"/>
                    </div>
-                   <select class="form-control w-full max-w-xs">
+                   <select class="form-control w-full max-w-xs" name="pool_adult">
                        <label class="label">
                            <option class="label-text">Nombres de jour de piscine (adultes)</option>
                            <option class="label-text">1</option>
@@ -121,8 +122,11 @@
                            <option class="label-text">5</option>
                        </label>
                    </select>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" type="submit" value="sendReservation">Reserver</button>
+                    </div>
                </div>
            </div>
-        </div>
+        </form>
     </div>
 {% endblock %}

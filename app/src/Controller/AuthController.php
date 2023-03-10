@@ -67,6 +67,5 @@ class AuthController extends AbstractController
         // Affichez le formulaire de connexion
         return new Response('Error: HTTP method not supported', 405);
     }
-        //TODO gerer l'erreur de route non disponible
 
 }

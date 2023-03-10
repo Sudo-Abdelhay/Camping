@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="symfony_docker@localhost" uuid="37bc1ed6-abf0-4193-879c-9b3530419632">
+    <data-source source="LOCAL" name="symfony_docker@localhost" uuid="683080ff-2c3d-4379-a9ee-d30eeb08f205">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://localhost:3307/symfony_docker</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="symfony_docker@localhost [2]" uuid="3e241c06-63e8-4ec4-929f-66a63c683555">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>

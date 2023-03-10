@@ -21,13 +21,13 @@ class HousingController extends AbstractController
         ]);
     }
 
-    #[Route('/housingdetail{id}')]
+    #[Route('/reservation{id}')]
     public function reservation(HousingRepository $housingRepository, $id): Response
     {
-        $housingdetail = $housingRepository->find($id);
+        $reservation = $housingRepository->find($id);
 
-        return $this->render("front/housingdetail.html.twig", [
-            'housing' => $housingdetail,
+        return $this->render("front/reservation.twig", [
+            'housing' => $reservation,
     ]);
     }
 

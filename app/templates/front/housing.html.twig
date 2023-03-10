@@ -95,10 +95,11 @@
             <h2 class="card-title">
                 <span><i class="fas fa-user"></i>  {{ housing.capacity }}</span>
                 <span><i class="fas fa-house"></i> {{ housing.surface }} m² </span>
+                <span>{{ housing.price }}€/nuit </span>
             </h2>
             <p>{{ housing.description }}</p>
             <div class="card-actions">
-                <button class="btn btn-primary"><a href="/housingdetail{{ housing.id }}">Reserver</a></button>
+                <button class="btn btn-primary"><a href="/reservation{{ housing.id }}">Reserver</a></button>
             </div>
         </div>
     </div>
